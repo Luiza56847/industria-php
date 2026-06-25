@@ -1,28 +1,20 @@
 <?php
 
-class Produto
+class Funcionario
 {
-    private string $codigo;
     private string $nome;
-    private float $preco;
+    private string $matricula;
+    private string $cargo;
 
-    public function __construct(string $codigo, string $nome, float $preco)
+    // Construtor atualizado
+    public function __construct(string $nome, string $matricula, string $cargo)
     {
-        $this->codigo = $codigo;
         $this->nome = $nome;
-        $this->preco = $preco;
+        $this->matricula = $matricula;
+        $this->cargo = $cargo;
     }
 
-    public function getCodigo(): string
-    {
-        return $this->codigo;
-    }
-
-    public function setCodigo(string $codigo): void
-    {
-        $this->codigo = $codigo;
-    }
-
+    // Getter e Setter do Nome
     public function getNome(): string
     {
         return $this->nome;
@@ -33,21 +25,33 @@ class Produto
         $this->nome = $nome;
     }
 
-    public function getPreco(): float
+    // Getter e Setter da Matrícula
+    public function getMatricula(): string
     {
-        return $this->preco;
+        return $this->matricula;
     }
 
-    public function setPreco(float $preco): void
+    public function setMatricula(string $matricula): void
     {
-        $this->preco = $preco;
+        $this->matricula = $matricula;
+    }
+
+    // Getter e Setter do Cargo
+    public function getCargo(): string
+    {
+        return $this->cargo;
+    }
+
+    public function setCargo(string $cargo): void
+    {
+        $this->cargo = $cargo;
     }
 
     public function exibirDados(): void
     {
-        echo "Código: " . $this->codigo . "<br>";
         echo "Nome: " . $this->nome . "<br>";
-        echo "Preço: R$ " . number_format($this->preco, 2, ',', '.') . "<br>";
+        echo "Matrícula: " . $this->matricula . "<br>";
+        echo "Cargo: " . $this->cargo . "<br>";
     }
 }
 
