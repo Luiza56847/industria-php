@@ -1,57 +1,56 @@
 <?php
 
-class Funcionario
+class Produto
 {
+    private string $codigo;
     private string $nome;
-    private string $matricula;
-    private string $cargo;
-
-    // Construtor atualizado
-    public function __construct(string $nome, string $matricula, string $cargo)
+    private float $preco;
+    private int $estoque; 
+    public function __construct(string $codigo, string $nome, float $preco, int $estoque)
     {
+        $this->codigo = $codigo;
         $this->nome = $nome;
-        $this->matricula = $matricula;
-        $this->cargo = $cargo;
+        $this->preco = $preco;
+        $this->estoque = $estoque;
     }
 
-    // Getter e Setter do Nome
+    public function getCodigo(): string
+    {
+        return $this->codigo;
+    }
+
     public function getNome(): string
     {
         return $this->nome;
     }
 
-    public function setNome(string $nome): void
+    public function getPreco(): float
     {
-        $this->nome = $nome;
+        return $this->preco;
     }
 
-    // Getter e Setter da Matrícula
-    public function getMatricula(): string
+    public function getEstoque(): int
     {
-        return $this->matricula;
+        return $this->estoque;
     }
 
-    public function setMatricula(string $matricula): void
+    public function setEstoque(int $estoque): void
     {
-        $this->matricula = $matricula;
+        $this->estoque = $estoque;
     }
 
-    // Getter e Setter do Cargo
-    public function getCargo(): string
+    // novo método
+    public function atualizarEstoque(int $quantidade): void
     {
-        return $this->cargo;
-    }
-
-    public function setCargo(string $cargo): void
-    {
-        $this->cargo = $cargo;
+        $this->estoque += $quantidade;
     }
 
     public function exibirDados(): void
     {
-        echo "Nome: " . $this->nome . "<br>";
-        echo "Matrícula: " . $this->matricula . "<br>";
-        echo "Cargo: " . $this->cargo . "<br>";
+        echo "Código: $this->codigo<br>";
+        echo "Nome: $this->nome<br>";
+        echo "Preço: R$ " . number_format($this->preco, 2, ',', '.') . "<br>";
+        echo "Estoque: $this->estoque<br>";
     }
 }
 
